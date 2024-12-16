@@ -8,18 +8,16 @@ plugins {
 
 group = 'com.example'
 version = '1.0.0'
-sourceCompatibility = '17'
+sourceCompatibility = '17' // Définit Java 17 comme version cible
 
 repositories {
     mavenCentral()
-    gradlePluginPortal() // Nécessaire pour le téléchargement des toolchains
 }
-
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    runtimeOnly 'com.h2database:h2:2.1.214' // Spécifiez la version ici
+    runtimeOnly 'com.h2database:h2:2.1.214'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.mockito:mockito-core:4.6.1'
 }
@@ -31,7 +29,7 @@ test {
 sonar {
     properties {
         property "sonar.projectKey", "bookmanager"
-        property "sonar.host.url", "http://localhost:9000"
+        property "sonar.host.url", "http://172.18.0.4:9000"
         property "sonar.login", "sqa_3d63b5618251b1eadc55bd42b56069436d372b21"
         property "sonar.java.coveragePlugin", "jacoco"
         property "sonar.coverage.jacoco.xmlReportPaths", "${buildDir}/reports/jacoco/test/jacocoTestReport.xml"
@@ -39,24 +37,13 @@ sonar {
 }
 
 jacoco {
-    toolVersion = "0.8.11" // Changez en fonction de la dernière version disponible
+    toolVersion = "0.8.11" // Version de JaCoCo
 }
 
 tasks.jacocoTestReport {
-    dependsOn test // Exécuter les tests avant de générer le rapport
+    dependsOn test
     reports {
         xml.required.set(true) // Nécessaire pour SonarQube
         html.required.set(true)
     }
 }
-
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(20)
-    }
-}
-
-tasks.withType(JavaCompile).configureEach {
-    options.forkOptions.jvmArgs.add('--add-opens=java.base/java.lang=ALL-UNNAMED')
-}
-
