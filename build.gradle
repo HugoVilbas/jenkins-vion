@@ -37,7 +37,7 @@ sonar {
 }
 
 jacoco {
-    toolVersion = "0.8.10" // Dernière version de JaCoCo
+    toolVersion = "0.8.11" // Changez en fonction de la dernière version disponible
 }
 
 tasks.jacocoTestReport {
@@ -45,6 +45,12 @@ tasks.jacocoTestReport {
     reports {
         xml.required.set(true) // Nécessaire pour SonarQube
         html.required.set(true)
+    }
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(20) // Remplacez par 20 ou une version compatible
     }
 }
 
