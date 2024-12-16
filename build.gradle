@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.0.0'
     id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+    id 'org.sonarqube' version '4.4.1.3373'
 }
 
 group = 'com.example'
@@ -22,4 +23,12 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+sonar {
+    properties {
+        property "sonar.projectKey", "bookmanager"
+        property "sonar.host.url", "http://localhost:9000"
+        property "sonar.login", "sqa_3d63b5618251b1eadc55bd42b56069436d372b21"
+    }
 }
