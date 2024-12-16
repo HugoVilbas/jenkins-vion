@@ -3,6 +3,7 @@ plugins {
     id 'org.springframework.boot' version '3.0.0'
     id 'io.spring.dependency-management' version '1.0.15.RELEASE'
     id 'org.sonarqube' version '4.4.1.3373'
+    id 'jacoco'
 }
 
 group = 'com.example'
@@ -30,5 +31,20 @@ sonar {
         property "sonar.projectKey", "bookmanager"
         property "sonar.host.url", "http://localhost:9000"
         property "sonar.login", "sqa_3d63b5618251b1eadc55bd42b56069436d372b21"
+        property "sonar.java.coveragePlugin", "jacoco"
+        property "sonar.coverage.jacoco.xmlReportPaths", "${buildDir}/reports/jacoco/test/jacocoTestReport.xml"
     }
 }
+
+jacoco {
+    toolVersion = "0.8.10" // Dernière version de JaCoCo
+}
+
+tasks.jacocoTestReport {
+    dependsOn test // Exécuter les tests avant de générer le rapport
+    reports {
+        xml.required.set(true) // Nécessaire pour SonarQube
+        html.required.set(true)
+    }
+}
+
