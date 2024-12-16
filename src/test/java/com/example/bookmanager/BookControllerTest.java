@@ -13,7 +13,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-public class BookControllerTest {
+class BookControllerTest {
 
     @InjectMocks
     private BookController bookController;
@@ -26,7 +26,7 @@ public class BookControllerTest {
     }
 
     @Test
-    public void testCreateBook() {
+    void testCreateBook() {
         Book book = new Book();
         book.setTitle("New Book");
         book.setAuthor("Author");
@@ -41,7 +41,7 @@ public class BookControllerTest {
     }
 
     @Test
-    public void testGetAllBooks() {
+    void testGetAllBooks() {
         List<Book> mockBooks = List.of(
                 new Book() {{
                     setTitle("Book 1");
@@ -63,7 +63,7 @@ public class BookControllerTest {
     }
 
     @Test
-    public void testDeleteBook() {
+    void testDeleteBook() {
         Long bookId = 1L;
 
         doNothing().when(bookService).deleteBook(bookId);
