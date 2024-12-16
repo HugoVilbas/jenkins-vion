@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.bookmanager.BookServiceTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-12-16T11:52:53" hostname="archlinux" time="0.018">
+  <properties/>
+  <testcase name="testSaveBook()" classname="com.example.bookmanager.BookServiceTest" time="0.003"/>
+  <testcase name="testGetAllBooksEmptyList()" classname="com.example.bookmanager.BookServiceTest" time="0.002"/>
+  <testcase name="testGetAllBooksWithData()" classname="com.example.bookmanager.BookServiceTest" time="0.003"/>
+  <testcase name="testDeleteBook()" classname="com.example.bookmanager.BookServiceTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
