@@ -14,7 +14,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-public class BookServiceTest {
+class BookServiceTest {
 
     @InjectMocks
     private BookService bookService;
@@ -27,7 +27,7 @@ public class BookServiceTest {
     }
 
     @Test
-    public void testSaveBook() {
+    void testSaveBook() {
         Book book = new Book();
         book.setTitle("Test Title");
         book.setAuthor("Test Author");
@@ -41,7 +41,7 @@ public class BookServiceTest {
     }
 
     @Test
-    public void testDeleteBook() {
+    void testDeleteBook() {
         Long bookId = 1L;
         doNothing().when(bookRepository).deleteById(bookId);
 
@@ -51,7 +51,7 @@ public class BookServiceTest {
     }
 
     @Test
-    public void testGetAllBooksEmptyList() {
+    void testGetAllBooksEmptyList() {
         when(bookRepository.findAll()).thenReturn(new ArrayList<>());
 
         List<Book> books = bookService.getAllBooks();
@@ -60,7 +60,7 @@ public class BookServiceTest {
     }
 
     @Test
-    public void testGetAllBooksWithData() {
+    void testGetAllBooksWithData() {
         List<Book> mockBooks = List.of(
                 new Book() {{
                     setTitle("Book 1");
