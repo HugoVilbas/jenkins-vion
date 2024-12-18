@@ -29,7 +29,7 @@ test {
 sonar {
     properties {
         property "sonar.projectKey", "bookmanager"
-        property "sonar.host.url", "http://172.18.0.4:9000"
+        property "sonar.host.url", "http://172.18.0.3:9000"
         property "sonar.login", "sqa_3d63b5618251b1eadc55bd42b56069436d372b21"
         property "sonar.java.coveragePlugin", "jacoco"
         property "sonar.coverage.jacoco.xmlReportPaths", "${buildDir}/reports/jacoco/test/jacocoTestReport.xml"
